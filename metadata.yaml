@@ -10,3 +10,8 @@ version: 1.1.0
 author: aceattorney
 repo: https://github.com/AceAttorney/astrbot_plugin_mcp_selfheal
 astrbot_version: ">=4.26,<5"
+social_link: https://github.com/AceAttorney
+tags:
+  - mcp
+  - 会话自愈
+  - 故障恢复
