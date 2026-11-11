@@ -1,0 +1,12 @@
+name: astrbot_plugin_mcp_selfheal
+display_name: MCP 会话自愈
+desc: >-
+  通用 MCP 会话自愈。任何 streamable_http / SSE / stdio 的 MCP 服务在自身重启、
+  会话表丢失后，客户端会用失效的 Mcp-Session-Id 一直被拒（404 -> McpError 32600），
+  AstrBot 原生重试不覆盖该异常，导致永久失效直到重启进程。本插件以服务无关的
+  会话级异常判定 + 自动重连重试 + 后台探活三层防御修复此类问题。
+short_desc: MCP 服务重启后客户端会话永久失效的通用修复。
+version: 1.1.0
+author: aceattorney
+repo: https://github.com/AceAttorney/astrbot_plugin_mcp_selfheal
+astrbot_version: ">=4.26,<5"

@@ -1,0 +1,44 @@
+{
+  "enabled": {
+    "description": "启用 MCP 会话自愈",
+    "type": "bool",
+    "default": true,
+    "hint": "关闭后不安装补丁、不启动探活，完全不影响 AstrBot 运行。改完需重载插件生效。"
+  },
+  "heal_attempts": {
+    "description": "单次调用最多自愈轮数",
+    "type": "int",
+    "default": 2,
+    "hint": "每次「重连 + 重试」。0 表示只记录日志不自愈。设太大会在服务端真宕机时制造重连风暴，建议 2。"
+  },
+  "backoff": {
+    "description": "重连退避基数（秒）",
+    "type": "float",
+    "default": 0.6,
+    "hint": "第 N 轮等待 N×该值 秒再重试。"
+  },
+  "ping_enabled": {
+    "description": "启用后台探活",
+    "type": "bool",
+    "default": true,
+    "hint": "定时向各 MCP 服务发 ping，提前发现失效会话并重建，同时抑制服务端空闲超时。"
+  },
+  "ping_interval": {
+    "description": "探活间隔（秒）",
+    "type": "int",
+    "default": 180,
+    "hint": "最小 30 秒，低于该值会被自动收敛到 30。"
+  },
+  "ping_timeout": {
+    "description": "单次探活超时（秒）",
+    "type": "int",
+    "default": 15,
+    "hint": "超时不会被判定为会话失效（避免误重连），只是本轮跳过。"
+  },
+  "ping_start_delay": {
+    "description": "启动后首次探活延迟（秒）",
+    "type": "int",
+    "default": 30,
+    "hint": "避开 AstrBot 启动瞬间 MCP 服务尚未连上的窗口。"
+  }
+}
